@@ -13,8 +13,8 @@
             align-items: center;
             height: 100vh; 
             margin: 0;
-            background: -webkit-linear-gradient(90deg, #e4c0a1,#e9c0b2,#b97ec3);
-            background: linear-gradient(90deg, #e4c0a1,#e9c0b2,#b97ec3);
+            background: -webkit-linear-gradient(90deg, #e4c0a1, #e9c0b2, #b97ec3);
+            background: linear-gradient(90deg, #e4c0a1, #e9c0b2, #b97ec3);
         }
         .form-container {
             width: 100%;
@@ -26,6 +26,10 @@
         }
         .input-group-text {
             cursor: pointer; 
+        }
+        .error-message {
+            color: red;
+            font-size: 0.875em;
         }
     </style>
 </head>
@@ -82,6 +86,7 @@
                     <i class="fas fa-eye-slash"></i>
                 </span>
             </div>
+            <span id="password-match-error" class="error-message d-none">Пароли не совпадают</span>
         </div>
         <button type="submit" class="btn btn-primary w-100">Зарегистрироваться</button>
     </form>
@@ -139,6 +144,19 @@
             } else {
                 passwordConfirmationField.attr('type', 'password');
                 $(this).find('i').removeClass('fa-eye').addClass('fa-eye-slash');
+            }
+        });
+
+        // Проверка совпадения паролей в реальном времени
+        $('#password, #password_confirmation').on('input', function() {
+            const password = $('#password').val();
+            const passwordConfirmation = $('#password_confirmation').val();
+            const errorSpan = $('#password-match-error');
+
+            if (password && passwordConfirmation && password !== passwordConfirmation) {
+                errorSpan.removeClass('d-none');
+            } else {
+                errorSpan.addClass('d-none');
             }
         });
     });

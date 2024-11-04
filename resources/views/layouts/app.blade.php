@@ -7,7 +7,7 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
     <header class="p-3 bg-light">
         <div class="container">
             <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
@@ -36,8 +36,8 @@
                                 Профиль
                             </button>
                             <ul class="dropdown-menu" aria-labelledby="profileDropdown">
-                                <li><a class="dropdown-item" href="/profile">Мои данные</a></li>
-                                <li><a class="dropdown-item" href="/orders">Мои заказы</a></li>
+                                <li><a class="dropdown-item" href="/lk/profile">Мои данные</a></li>
+                                <li><a class="dropdown-item" href="/lk/orders">Мои заказы</a></li>
                                 <li>
                                     <form action="/lk/logout" method="POST" style="display: inline;">
                                         @csrf
@@ -59,11 +59,13 @@
         @yield('content')
     </main>
 
-    <footer class="bg-light py-3">
+    <footer class="bg-light py-3 mt-auto">
         <div class="container text-center">
             <p>&copy; 2024 Интернет-магазин</p>
+            <span></span>
         </div>
     </footer>
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

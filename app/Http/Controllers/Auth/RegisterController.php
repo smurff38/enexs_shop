@@ -29,6 +29,8 @@ class RegisterController extends Controller
         ], [
             'phone.unique' => 'Номер телефона уже зарегистрирован',
             'login.unique' => 'Логин занят',
+            'password.confirmed' => 'Введённые пароли не совпадают',
+            'password.min' => 'Длина пароля не может быть меньше 8 символов',
         ]);
     
         User::create([
