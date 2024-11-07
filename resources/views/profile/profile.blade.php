@@ -11,6 +11,7 @@
 
         <form action="{{ route('profile.update') }}" method="POST" id="profileForm">
             @csrf
+<<<<<<< HEAD
             <div class="card profile-card">
                 <div class="card-header d-flex justify-content-between align-items-center">
                     <h3>Ваши данные</h3>
@@ -18,6 +19,11 @@
                     <button type="button" id="editIcon" class="btn btn-light p-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Редактировать данные">
                         <i class="bi bi-pencil-square"></i> <!-- Иконка карандаша -->
                     </button>
+=======
+            <div class="card">
+                <div class="card-header">
+                    <h3>Ваши данные</h3>
+>>>>>>> origin/main
                 </div>
                 <div class="card-body">
                     <div class="mb-3">
@@ -35,12 +41,29 @@
                     <div class="mb-3">
                         <label for="phone" class="form-label">Телефон</label>
                         <input type="text" class="form-control" id="phone" name="phone" value="{{ $user->phone }}" disabled>
+<<<<<<< HEAD
                         <div class="invalid-feedback" id="phoneError"></div>
                     </div>
                     <div class="mb-3">
                         <label for="login" class="form-label">Логин</label>
                         <input type="text" class="form-control" id="login" name="login" value="{{ $user->login }}" disabled readonly
                                data-bs-toggle="tooltip" data-bs-placement="top" title="Логин изменить нельзя">
+=======
+                        <div class="invalid-feedback" id="phoneError"></div> <!-- Элемент для сообщения об ошибке -->
+                    </div>
+                    <div class="mb-3">
+                        <label for="login" class="form-label">Логин</label>
+                        <input type="text"
+                               class="form-control"
+                               id="login"
+                               name="login"
+                               value="{{ $user->login }}"
+                               disabled
+                               readonly
+                               data-bs-toggle="tooltip"
+                               data-bs-placement="top"
+                               title="Логин изменить нельзя">
+>>>>>>> origin/main
                     </div>
                 </div>
                 <div class="card-footer">
@@ -52,6 +75,7 @@
         </form>
     </div>
 
+<<<<<<< HEAD
     <!-- Подключение jQuery и Bootstrap JS для тултипов -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
@@ -64,6 +88,13 @@
                 new bootstrap.Tooltip(tooltipTriggerEl);
             });
 
+=======
+    <!-- Подключение jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+>>>>>>> origin/main
             // Сохраняем исходные значения в переменные
             const originalValues = {
                 lastName: $('#last_name').val(),
@@ -137,6 +168,7 @@
             });
         });
     </script>
+<<<<<<< HEAD
 
     <style>
         .profile-card {
@@ -168,4 +200,6 @@
             background-color: #e2e6ea;
         }
     </style>
+=======
+>>>>>>> origin/main
 @endsection

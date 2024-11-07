@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<<<<<<< HEAD
     <title>@yield('title', 'Enexs Shop')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -83,6 +84,13 @@
         }
     </style>
 
+=======
+    <title>@yield('title', 'Интернет-магазин')</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
+>>>>>>> origin/main
 </head>
 <body class="d-flex flex-column min-vh-100">
 <header>
@@ -148,6 +156,7 @@
                 <li><a href="/about" class="text-dark">О нас</a></li>
             </ul>
         </div>
+<<<<<<< HEAD
         <div class="col-md-4 d-flex flex-column justify-content-center align-items-center text-center">
             <ul class="list-unstyled">
                 <li><i class="fas fa-phone me-2"></i> <a href="tel:+79000000000" class="text-dark">+7 (900) 000-00-00</a></li>
@@ -164,5 +173,10 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+=======
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+>>>>>>> origin/main
 </body>
 </html>
