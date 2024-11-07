@@ -3,9 +3,10 @@
 namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
-use App\Models\User; // Импорт модели User
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Validator;
 
 class LoginController extends Controller
 {
@@ -16,19 +17,32 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        // Валидация данных формы
+        $validator = Validator::make($request->all(), [
+            'login' => 'required|string',
+            'password' => 'required|string',
+        ]);
+
+        if ($validator->fails()) {
+            return back()->withErrors($validator)->withInput();
+        }
+
         $credentials = $request->only('login', 'password');
 
+        // Проверка, существует ли пользователь с данным логином
         $userExists = User::where('login', $credentials['login'])->exists();
-
         if (!$userExists) {
-            return back()->withErrors(['message' => 'Пользователь с таким логином не найден']);
+            return back()->withErrors(['login' => 'Пользователь с таким логином не найден'])->withInput();
         }
 
+        // Попытка аутентификации
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('/');
+            $request->session()->regenerate(); // Регистрация новой сессии
+            return redirect()->intended('/'); // Переход на запрашиваемую страницу или главную
         }
 
-        return back()->withErrors(['message' => 'Неверный пароль']);
+        // Сообщение об ошибке в случае неверного пароля
+        return back()->withErrors(['password' => 'Неверный пароль'])->withInput();
     }
 
     public function logout(Request $request)
@@ -40,4 +54,3 @@ class LoginController extends Controller
         return redirect('/');
     }
 }
-
