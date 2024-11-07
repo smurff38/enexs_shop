@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\RegisterController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\ProfileController;
 
 Route::prefix('lk')->group(function () {
     Route::get('/register', [RegisterController::class, 'showRegistrationForm'])->name('register')->middleware('guest');
@@ -10,9 +11,8 @@ Route::prefix('lk')->group(function () {
     Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login')->middleware('guest');
     Route::post('/login', [LoginController::class, 'login'])->middleware('guest');
     Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
-    Route::get('/profile', function () {
-        return view('profile/profile');
-    });
+    Route::get('/profile', [ProfileController::class, 'show'])->name('profile/profile.show');
+    Route::post('/profile/update', [ProfileController::class, 'update'])->name('profile.update');
 });
 
 Route::get('/', function () {
