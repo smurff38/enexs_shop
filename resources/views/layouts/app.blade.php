@@ -3,7 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<<<<<<< HEAD
     <title>@yield('title', 'Enexs Shop')</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
@@ -18,33 +17,46 @@
         }
 
         header {
-            padding-top: 10px; /* Увеличиваем отступ сверху */
+            padding-top: 10px;
+            padding-bottom: 10px;
         }
 
         .header-content {
             background-color: #8BA3F4;
             border-radius: 10px;
-            padding: 0 40px 10px 40px; /* Только отступы слева и справа, сверху нет */
+            padding: 0 20px;
             display: flex;
             flex-direction: column-reverse;
             flex-wrap: wrap;
+            max-width: 95%;
+            margin: 0 auto; /* Центрируем шапку */
         }
 
         .search-input {
-            border-radius: 10px;
-            padding-right: 2.5rem;
+            border-radius: 20px; /* Скругление */
+            padding-right: 2.5rem; /* Отступ справа для иконки */
+            padding-left: 2.5rem; /* Отступ слева для иконки */
+            background-color: rgba(255, 255, 255, 0.8); /* Прозрачность фона */
+            transition: background-color 0.3s ease, box-shadow 0.3s ease; /* Плавные переходы */
         }
 
-        .search-input::placeholder {
-            color: #6c757d;
-        }
-
+        /* Иконка поиска */
         .search-icon {
             position: absolute;
-            left: 10px;
+            left: 15px; /* Отступ для иконки */
             top: 50%;
             transform: translateY(-50%);
             color: #6c757d;
+        }
+
+        /* Цвет текста плейсхолдера */
+            .search-input::placeholder {
+        }
+
+        /* Эффект при наведении */
+        .search-input:hover, .search-input:focus {
+            background-color: rgba(255, 255, 255, 1); /* Убираем прозрачность при наведении */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Тень при наведении */
         }
 
         footer {
@@ -71,6 +83,18 @@
             color: #333;
         }
 
+        .dropdown-toggle {
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            padding: 0;
+            border: none;
+        }
+
+        .dropdown-toggle:focus {
+            box-shadow: none; /* Убираем синее выделение */
+        }
+
         .dropdown-toggle::after {
             display: none; /* Убираем стрелочку */
         }
@@ -83,14 +107,6 @@
             display: none; /* Скрываем меню по умолчанию */
         }
     </style>
-
-=======
-    <title>@yield('title', 'Интернет-магазин')</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{{ asset('js/jquery.mask.min.js') }}"></script>
->>>>>>> origin/main
 </head>
 <body class="d-flex flex-column min-vh-100">
 <header>
@@ -98,7 +114,7 @@
         <div class="header-content">
             <div class="d-flex flex-wrap align-items-center justify-content-between">
                 <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-dark text-decoration-none">
-                    <img src="{{ asset('images/logo/logo.png') }}" alt="Логотип" width="auto" height="auto" class="me-3">
+                    <img src="{{ asset('images/logo/logo.png') }}" alt="Логотип" class="me-2" style="max-width: 100px;">
                 </a>
 
                 <a href="/catalog" class="btn btn-light me-2">
@@ -156,7 +172,6 @@
                 <li><a href="/about" class="text-dark">О нас</a></li>
             </ul>
         </div>
-<<<<<<< HEAD
         <div class="col-md-4 d-flex flex-column justify-content-center align-items-center text-center">
             <ul class="list-unstyled">
                 <li><i class="fas fa-phone me-2"></i> <a href="tel:+79000000000" class="text-dark">+7 (900) 000-00-00</a></li>
@@ -173,10 +188,5 @@
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-=======
-    </footer>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
->>>>>>> origin/main
 </body>
 </html>

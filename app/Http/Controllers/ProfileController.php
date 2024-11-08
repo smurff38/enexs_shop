@@ -4,13 +4,21 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use App\Models\Order;
 
 class ProfileController extends Controller
 {
     public function show()
     {
         $user = Auth::user();
-        return view('profile.profile', compact('user'));
+
+        // Получаем заказы пользователя вместе с элементами заказа
+        $orders = Order::where('id_user', $user->id)
+            ->with('items')
+            ->orderBy('order_date', 'desc')
+            ->get();
+
+        return view('profile.profile', compact('user', 'orders'));
     }
 
     public function update(Request $request)
